@@ -1,0 +1,3 @@
+convps g/g_TimesNewRomanPSMT.eps g >> g.m
+convps m/m_TimesNewRomanPSMT.eps m >> m.m
+convps u/u_TimesNewRomanPSMT.eps u >> u.m
