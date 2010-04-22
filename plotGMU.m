@@ -2,6 +2,8 @@ function plotGMU(hObject, spacing, c, showPoints)
 %plotGMU 
 %   
     cla(hObject);
+
+    axis([-1000 6000 -500 1000]);
     
     hold on;
 
