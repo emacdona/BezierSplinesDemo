@@ -22,7 +22,6 @@ while(my $cl = <INFILE>){
       $process = 1;
       next;
    }
-   #if($command eq 'closepath'){
    if($command eq 'grestore'){
       last;
    }
