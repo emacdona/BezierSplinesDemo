@@ -1,4 +1,4 @@
-function [ maxX ] = bezierPlot( axesHandle, x, y, c, showPoints )
+function [ maxX, preScaleMaxX ] = bezierPlot( axesHandle, x, y, c, showPoints )
 %bezierPlot 
 %   
     numcurves=size(x,1); 
@@ -6,6 +6,7 @@ function [ maxX ] = bezierPlot( axesHandle, x, y, c, showPoints )
     t=0:.002:1;
     
     maxX = 0;
+    preScaleMaxX = 0;
     
     x = x + y*c;
     
@@ -33,6 +34,10 @@ function [ maxX ] = bezierPlot( axesHandle, x, y, c, showPoints )
       
       if max(xp) > maxX
           maxX = max(xp);
+      end
+      
+      if( max(xp - yp*c) > preScaleMaxX)
+         preScaleMaxX = max(xp - yp*c); 
       end
     end 
     %axis square

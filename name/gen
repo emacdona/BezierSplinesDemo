@@ -1,0 +1,11 @@
+../convps capE.eps capE  >> capE.m
+../convps d.eps       d  >> d.m
+../convps capM.eps capM  >> capM.m
+../convps a.eps       a  >> a.m
+../convps c.eps       c  >> c.m
+../convps capD.eps capD  >> capD.m
+../convps o.eps       o  >> o.m
+../convps n.eps       n  >> n.m
+#                     a
+../convps l.eps       l  >> l.m
+#                     d
