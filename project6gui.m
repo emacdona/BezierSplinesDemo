@@ -22,7 +22,7 @@ function varargout = project6gui(varargin)
 
 % Edit the above text to modify the response to help project6gui
 
-% Last Modified by GUIDE v2.5 22-Apr-2010 00:51:37
+% Last Modified by GUIDE v2.5 24-Apr-2010 09:19:52
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -178,3 +178,18 @@ function checkbox1_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 % Hint: get(hObject,'Value') returns toggle state of checkbox1
+
+
+% --- Executes on button press in pushbutton1.
+function pushbutton1_Callback(hObject, eventdata, handles)
+    set(handles.edit1, 'String', 0);
+    set(handles.slider2, 'Value', 0);
+    showPoints = 0;
+    if(get(handles.checkbox1, 'Value') == get(handles.checkbox1, 'Max'))
+        showPoints = 1;
+    end
+    plotGMU(handles.axes1, 50, 0, showPoints);
+
+% hObject    handle to pushbutton1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
