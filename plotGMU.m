@@ -3,7 +3,7 @@ function plotGMU(varargin)
 %   
     
     if nargin == 1
-        %If nargin > 4, I'm assuming the fifth argument is the handles
+        %If nargin == 1, I'm assuming the only argument is the handles
         %object from project6gui. Yeah, this makes for a dependency on the
         %gui, but it will work without it too.
         handles   = varargin{1};
@@ -32,9 +32,18 @@ function plotGMU(varargin)
     [mx,my] = m;
     [ux,uy] = u;
 
-    [maxGx, preScaleMaxGx] = bezierPlot(hObject, gx, gy, c, showPoints);
-    [maxMx, preScaleMaxMx] = bezierPlot(hObject, mx + preScaleMaxGx + spacing, my, c, showPoints);
-    [maxUx, preScaleMaxUx] = bezierPlot(hObject, ux + preScaleMaxMx + spacing, uy, c, showPoints);
+    [maxGx, preScaleMaxGx] = ...
+        bezierPlot(hObject, gx, gy, c, showPoints);
+    
+    [maxMx, preScaleMaxMx] = ...
+        bezierPlot( hObject, ...
+                    mx + preScaleMaxGx + spacing, ...
+                    my, c, showPoints);
+    
+    [maxUx, preScaleMaxUx] = ...
+        bezierPlot( hObject, ...
+                    ux + preScaleMaxMx + spacing, ...
+                    uy, c, showPoints);
 
     hold off;
 end
