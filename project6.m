@@ -4,6 +4,6 @@ clf;
 
 hold on;
 
-plotGMU(gca, 50, -1, 0);
+plotGMU(gca, 50, 0, 0);
 
 hold off;

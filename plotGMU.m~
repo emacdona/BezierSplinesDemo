@@ -1,0 +1,43 @@
+function plotGMU(hObject, spacing, c, showPoints)
+%plotGMU 
+%   
+    cla(hObject);
+
+    %axis([-800 4500 -500 1000]);
+    
+    hold on;
+
+%     [gx,gy] = g;
+%     [mx,my] = m;
+%     [ux,uy] = u;
+% 
+%     [maxGx, preScaleMaxGx] = bezierPlot(hObject, gx, gy, c, showPoints);
+%     [maxMx, preScaleMaxMx] = bezierPlot(hObject, mx + preScaleMaxGx + spacing, my, c, showPoints);
+%     [maxUx, preScaleMaxUx] = bezierPlot(hObject, ux + preScaleMaxMx + spacing, uy, c, showPoints);
+
+      [Ex, Ey] = capE;
+      [dx, dy] = d;
+      [Mx, My] = capM;
+      [ax, ay] = a;
+      [cx, xy] = c;
+      [Dx, Dy] = capD;
+      [ox, oy] = o;
+      [nx, ny] = n;
+      [lx, ly] = l;
+      
+      [max, preMax] = bezierPlot(hObject, Ex, Ey, c, showPoints);
+      [max, preMax] = bezierPlot(hObject, dx, dy, c, showPoints);
+      [max, preMax] = bezierPlot(hObject, Mx, My, c, showPoints);
+      [max, preMax] = bezierPlot(hObject, Ex, Ey, c, showPoints);
+      [max, preMax] = bezierPlot(hObject, Ex, Ey, c, showPoints);
+      [max, preMax] = bezierPlot(hObject, Ex, Ey, c, showPoints);
+      [max, preMax] = bezierPlot(hObject, Ex, Ey, c, showPoints);
+      [max, preMax] = bezierPlot(hObject, Ex, Ey, c, showPoints);
+      [max, preMax] = bezierPlot(hObject, Ex, Ey, c, showPoints);
+      [max, preMax] = bezierPlot(hObject, Ex, Ey, c, showPoints);
+      [max, preMax] = bezierPlot(hObject, Ex, Ey, c, showPoints);
+      
+
+    hold off;
+end
+
