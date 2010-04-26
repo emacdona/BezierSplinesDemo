@@ -105,11 +105,7 @@ function uipanel3_ResizeFcn(hObject, eventdata, handles)
 % --- Executes on slider movement.
 function slider2_Callback(hObject, eventdata, handles)
     set(handles.edit1, 'String', get(hObject, 'Value'));
-    showPoints = 0;
-    if(get(handles.checkbox1, 'Value') == get(handles.checkbox1, 'Max'))
-        showPoints = 1;
-    end
-    plotGMU(handles.axes1, 50, get(hObject, 'Value'), showPoints);
+    plotGMU(handles);
 % hObject    handle to slider2 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
@@ -167,11 +163,7 @@ function axes1_CreateFcn(hObject, eventdata, handles)
 
 % --- Executes on button press in checkbox1.
 function checkbox1_Callback(hObject, eventdata, handles)
-    showPoints = 0;
-    if(get(hObject, 'Value') == get(hObject, 'Max'))
-        showPoints = 1;
-    end
-    plotGMU(handles.axes1, 50, get(handles.slider2, 'Value'), showPoints);
+    plotGMU(handles);
 
 % hObject    handle to checkbox1 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -184,11 +176,7 @@ function checkbox1_Callback(hObject, eventdata, handles)
 function pushbutton1_Callback(hObject, eventdata, handles)
     set(handles.edit1, 'String', 0);
     set(handles.slider2, 'Value', 0);
-    showPoints = 0;
-    if(get(handles.checkbox1, 'Value') == get(handles.checkbox1, 'Max'))
-        showPoints = 1;
-    end
-    plotGMU(handles.axes1, 50, 0, showPoints);
+    plotGMU(handles);
 
 % hObject    handle to pushbutton1 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB

@@ -1,8 +1,29 @@
-function plotGMU(hObject, spacing, c, showPoints)
+function plotGMU(varargin)
 %plotGMU 
 %   
+    
+    if nargin == 1
+        %If nargin > 4, I'm assuming the fifth argument is the handles
+        %object from project6gui. Yeah, this makes for a dependency on the
+        %gui, but it will work without it too.
+        handles   = varargin{1};
+        hObject   = handles.axes1;
+        spacing   = 50; %may want to create a gui object to vary this
+        c         = get(handles.slider2, 'Value');
+        if(get(handles.checkbox1, 'Value') == get(handles.checkbox1, 'Max'))
+            showPoints = 1;
+        else
+            showPoints = 0;
+        end
+    else
+        hObject      = varargin{1};
+        spacing      = varargin{2};
+        c            = varargin{3};
+        showPoints   = varargin{4};
+    end
+    
     cla(hObject);
-
+    
     axis([-800 4500 -500 1000]);
     
     hold on;
@@ -14,29 +35,6 @@ function plotGMU(hObject, spacing, c, showPoints)
     [maxGx, preScaleMaxGx] = bezierPlot(hObject, gx, gy, c, showPoints);
     [maxMx, preScaleMaxMx] = bezierPlot(hObject, mx + preScaleMaxGx + spacing, my, c, showPoints);
     [maxUx, preScaleMaxUx] = bezierPlot(hObject, ux + preScaleMaxMx + spacing, uy, c, showPoints);
-
-%       [Ex, Ey] = capE;
-%       [dx, dy] = d;
-%       [Mx, My] = capM;
-%       [ax, ay] = a;
-%       [cx, cy] = cp;
-%       [Dx, Dy] = capD;
-%       [ox, oy] = o;
-%       [nx, ny] = n;
-%       [lx, ly] = l;
-%       
-%       [max, preMax] = bezierPlot(hObject, Ex, Ey, c, showPoints);
-%       [max, preMax] = bezierPlot(hObject, dx + preMax + spacing, dy, c, showPoints);
-%       [max, preMax] = bezierPlot(hObject, Mx + preMax + spacing, My, c, showPoints);
-%       [max, preMax] = bezierPlot(hObject, ax + preMax + spacing, ay, c, showPoints);
-%       [max, preMax] = bezierPlot(hObject, cx + preMax + spacing, cy, c, showPoints);
-%       [max, preMax] = bezierPlot(hObject, Dx + preMax + spacing, Dy, c, showPoints);
-%       [max, preMax] = bezierPlot(hObject, ox + preMax + spacing, oy, c, showPoints);
-%       [max, preMax] = bezierPlot(hObject, nx + preMax + spacing, ny, c, showPoints);
-%       [max, preMax] = bezierPlot(hObject, ax + preMax + spacing, ay, c, showPoints);
-%       [max, preMax] = bezierPlot(hObject, lx + preMax + spacing, ly, c, showPoints);
-%       [max, preMax] = bezierPlot(hObject, dx + preMax + spacing, dy, c, showPoints);
-      
 
     hold off;
 end
